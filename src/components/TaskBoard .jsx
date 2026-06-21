@@ -154,7 +154,9 @@ const TrelloBoard = () => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await axios.get(`${API_URL}/api/v1/tasks`);
+        const response = await axios.get(`${API_URL}/api/v1/tasks`,{
+          withCredentials: true,
+        });
         dispatch(setTasks(response.data));
         setLoading(false);
       } catch (err) {
