@@ -39,6 +39,7 @@ const OAuth = ({ title }) => {
       if (res.ok) {
         dispatch(setCredentials(data));
         toast.success("Login successful");
+        setTimeout(() => navigate("/"), 100);
         navigate("/");
       } else {
         toast.error(data.message || "Google login failed");
